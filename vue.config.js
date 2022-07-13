@@ -35,6 +35,16 @@ module.exports = {
     overlay: {
       warnings: false,
       errors: true
+    },
+    // 反向代理
+    proxy: {
+      '/abc': {
+        target: 'http://ihrm.itheima.net/',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/abc': ''
+        }
+      }
     }
     // 真正的项目有自己的接口服务器 不用模拟数据 所以此行没用
     // before: require('./mock/mock-server.js')
